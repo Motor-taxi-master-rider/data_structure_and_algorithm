@@ -19,11 +19,10 @@ int *toArray(int num)
 
 int toNum(int arr[])
 {
-    int number = 0, base = 1000;
+    int number = 0;
     for (int i = 0; i < 4; i++)
     {
-        number += arr[i] * base;
-        base /= 10;
+        number = number * 10 + arr[i];
     }
     return number;
 }
