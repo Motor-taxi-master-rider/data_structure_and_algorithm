@@ -1,18 +1,19 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
+#include <random>
 #include <iostream>
+#include <vector>
 using namespace std;
 const int maxn = 100010;
+default_random_engine e;
 
-int randPartition(int arr[], int start, int end)
+int randPartition(vector<int> &arr, int start, int end)
 {
-    int select = round(1.0 * rand() / RAND_MAX * (end - start)) + start;
+    uniform_int_distribution<unsigned> u(start, end);
+    int select = u(e); // select index from [start, end]
     swap(arr[start], arr[select]);
     int tmp = arr[start];
     while (start < end)
     {
-        while (start<end && arr[end]> tmp)
+        while (start < end && arr[end] > tmp)
             end--;
         arr[start] = arr[end];
         while (start < end && arr[start] <= tmp)
@@ -23,7 +24,7 @@ int randPartition(int arr[], int start, int end)
     return start;
 }
 
-int randomSelect(int arr[], int start, int end, int index)
+int randomSelect(vector<int> &arr, int start, int end, int index)
 {
     if (start > end)
         return -1;
@@ -43,11 +44,10 @@ int randomSelect(int arr[], int start, int end, int index)
 
 int main()
 {
-    int A[] = {1, 6, 33, 18, 4, 0, 10, 5, 12, 7, 2, 9, 3};
-    int length = sizeof(A) / sizeof(int);
-    int result = randomSelect(A, 0, length - 1, 9);
+    vector<int> input = {1, 6, 33, 18, 4, 0, 10, 5, 12, 7, 2, 9, 3};
+    int result = randomSelect(input, 0, input.size() - 1, 9); // 9
 
-    cout <<result << endl;
+    cout << result << endl;
 
     return 0;
 }

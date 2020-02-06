@@ -1,7 +1,6 @@
 // A1059
 
-#include <cstdio>
-#include <cmath>
+#include <math.h>
 #include <vector>
 #include <iostream>
 using namespace std;

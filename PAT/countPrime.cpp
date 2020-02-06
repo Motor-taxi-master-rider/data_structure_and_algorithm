@@ -1,7 +1,7 @@
 // B1013
 #include <vector>
-#include <cstdio>
-#include <cmath>
+#include <iostream>
+#include <math.h>
 using namespace std;
 
 bool isPrime(int num)

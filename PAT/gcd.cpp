@@ -1,5 +1,5 @@
 // codeup 1818
-#include <cstdio>
+#include <iostream>
 using namespace std;
 
 int gcd(int first, int second)
