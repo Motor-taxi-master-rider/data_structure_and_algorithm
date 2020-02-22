@@ -80,15 +80,15 @@ int main()
 {
     int treeSize;
     vector<int> postOrder, inOrder;
-    cin >> treeSize;
-    for (int i = 0; i < treeSize; i++)
+    cin >> treeSize;  // 7
+    for (int i = 0; i < treeSize; i++)  // 2 3 1 5 7 6 4
     {
         int data;
         cin >> data;
         postOrder.push_back(data);
     }
 
-    for (int i = 0; i < treeSize; i++)
+    for (int i = 0; i < treeSize; i++)  // 1 2 3 4 5 6 7
     {
         int data;
         cin >> data;
@@ -97,7 +97,7 @@ int main()
 
     node *tree = buildTree(postOrder, inOrder);
 
-    printLayorOrder(tree, treeSize);
+    printLayorOrder(tree, treeSize);  // 4 1 6 3 6 7 2
 
     return 0;
 }
